@@ -1,101 +1,56 @@
 <!DOCTYPE html>
-<!-- This tells the browser we are using HTML5 -->
-
 <html>
-<!-- The html tag wraps all content on the page -->
-
 <head>
-    <!-- The head section contains information about the page -->
-    
     <title>Mirai Bank - About Us</title>
-    <!-- The title appears in the browser tab -->
-    
     <link rel="stylesheet" href="style.css">
-    <!-- This link tag connects our CSS file to style the page -->
 </head>
 
 <body>
-    <!-- The body section contains all visible content on the page -->
-    
-    <!-- NAVBAR SECTION -->
-    <!-- The navbar is the top navigation bar - same as other pages for consistency -->
     <nav class="navbar">
-        <!-- nav is a semantic HTML tag for navigation sections -->
-        
         <div class="nav-container">
-            <!-- This div holds all navbar content and keeps it centered -->
-            
             <div class="logo">
-                <!-- This div contains the bank logo/name -->
                 <h2>Mirai Bank</h2>
-                <!-- h2 is used for the bank name/logo -->
             </div>
             
             <div class="nav-links">
-                <!-- This div contains the navigation menu items -->
                 <a href="index.html">Home</a>
-                <!-- Link to go back to home page -->
                 <a href="about.html">About Us</a>
-                <!-- Current page - About Us -->
                 <a href="#" onclick="showContactPopup()">Contact</a>
-                <!-- When clicked, shows contact popup -->
             </div>
         </div>
     </nav>
     
-    <!-- ABOUT US CONTENT SECTION -->
-    <!-- This section contains information about Mirai Bank -->
     <section class="about-section">
-        <!-- section tag groups the about content area -->
-        
         <div class="container">
-            <!-- container div keeps content centered and adds padding -->
-            
             <h1>About Mirai Bank</h1>
-            <!-- h1 is the main heading for the page -->
             
             <div class="about-content">
-                <!-- This div contains the about us text -->
-                
                 <p>Welcome to Mirai Bank, your trusted partner in modern banking solutions.</p>
-                <!-- p tag is for paragraph text -->
                 
                 <h2>Who We Are</h2>
-                <!-- h2 is a subheading -->
                 
                 <p>Mirai Bank is a leading financial institution dedicated to providing simple, secure, and innovative banking services to our customers. Founded with a vision to make banking accessible to everyone, we combine traditional banking values with modern technology.</p>
                 
                 <h2>What We Do</h2>
-                <!-- h2 is a subheading -->
                 
                 <p>At Mirai Bank, we offer a wide range of banking services designed to meet your financial needs:</p>
                 
                 <ul class="services-list">
-                    <!-- ul is an unordered list -->
                     <li><strong>Savings Accounts:</strong> Secure your money with attractive interest rates and easy access to your funds anytime, anywhere.</li>
-                    <!-- li is a list item -->
-                    
                     <li><strong>Personal Loans:</strong> Get quick approval for personal, home, and car loans with competitive interest rates and flexible repayment options.</li>
-                    
                     <li><strong>Credit Cards:</strong> Enjoy premium credit cards with exclusive benefits, rewards, cashback offers, and worldwide acceptance.</li>
-                    
                     <li><strong>Online Banking:</strong> Manage your account 24/7 with our easy-to-use internet banking platform. Check balance, transfer money, and view transaction history from anywhere.</li>
-                    
                     <li><strong>Mobile Banking:</strong> Bank on the go with our secure mobile app. Deposit checks, pay bills, and send money with just a few taps.</li>
-                    
                     <li><strong>Customer Support:</strong> Our dedicated support team is always ready to help you with any banking queries or issues.</li>
                 </ul>
                 
                 <h2>Our Mission</h2>
-                <!-- h2 is a subheading -->
                 
                 <p>Our mission is to empower individuals and businesses with simple, secure, and accessible banking solutions. We believe in building long-term relationships with our customers based on trust, transparency, and excellent service.</p>
                 
                 <h2>Why Choose Mirai Bank?</h2>
-                <!-- h2 is a subheading -->
                 
                 <ul class="benefits-list">
-                    <!-- ul is an unordered list -->
                     <li>✓ Secure and reliable banking platform</li>
                     <li>✓ Easy-to-use online and mobile banking</li>
                     <li>✓ Competitive interest rates</li>
@@ -106,32 +61,18 @@
                 </ul>
                 
                 <p class="closing-text">Join Mirai Bank today and experience banking made simple!</p>
-                <!-- p tag with class for special styling -->
             </div>
         </div>
     </section>
     
-    <!-- FOOTER SECTION -->
-    <!-- The footer appears at the bottom of the page -->
     <footer class="footer">
-        <!-- footer is a semantic HTML tag for the bottom section -->
-        
         <p>&copy; 2024 Mirai Bank. All rights reserved.</p>
-        <!-- &copy; displays the copyright symbol © -->
-        <!-- p tag contains the footer text -->
     </footer>
     
     <script>
-        // Function to show contact popup
-        // This function runs when user clicks "Contact" in the navbar
         function showContactPopup() {
-            // Show an alert with contact information
-            // alert() displays a popup message
             alert("📞 Contact Mirai Bank\n\nCustomer Service: 1800-123-4567\nEmail: support@miraibank.com\n\nAvailable 24/7 for your assistance!");
-            // \n creates a new line in the message
         }
     </script>
 </body>
-
 </html>
-<!-- End of HTML document -->
