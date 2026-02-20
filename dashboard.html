@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<!-- This tells the browser we are using HTML5 -->
+
+<html>
+<!-- The html tag wraps all content on the page -->
+
+<head>
+    <!-- The head section contains information about the page -->
+    
+    <title>Mirai Bank - Dashboard</title>
+    <!-- The title appears in the browser tab -->
+    
+    <link rel="stylesheet" href="style.css">
+    <!-- This link tag connects our CSS file to style the page -->
+</head>
+
+<body>
+    <!-- The body section contains all visible content on the page -->
+    
+    <!-- NAVBAR SECTION -->
+    <!-- The navbar is the top navigation bar - same as login page for consistency -->
+    <nav class="navbar">
+        <!-- nav is a semantic HTML tag for navigation sections -->
+        
+        <div class="nav-container">
+            <!-- This div holds all navbar content and keeps it centered -->
+            
+            <div class="logo">
+                <!-- This div contains the bank logo/name -->
+                <h2>Mirai Bank</h2>
+                <!-- h2 is used for the bank name/logo -->
+            </div>
+            
+            <div class="nav-links">
+                <!-- This div contains the navigation menu items -->
+                <a href="#" onclick="showMyAccount()">My Account</a>
+                <!-- When clicked, calls showMyAccount function to display account details -->
+                <a href="about.html">About Us</a>
+                <!-- Link to About Us page -->
+                <a href="#" onclick="showContactPopup()">Contact</a>
+                <!-- When clicked, shows contact popup with phone number -->
+                <a href="#" onclick="logoutUser()">Logout</a>
+                <!-- When clicked, calls logoutUser function to log out and return to login page -->
+            </div>
+        </div>
+    </nav>
+    
+    <!-- DASHBOARD HEADER -->
+    <!-- This section welcomes the user to their dashboard -->
+    <section class="dashboard-header">
+        <!-- section tag groups the header area -->
+        
+        <div class="container">
+            <!-- container div keeps content centered and adds padding -->
+            
+            <h1>Your Account Dashboard</h1>
+            <!-- h1 is the main heading for the page -->
+            
+            <p id="welcome-message">Welcome back!</p>
+            <!-- This paragraph will show personalized welcome message with username -->
+            <!-- id="welcome-message" allows JavaScript to update this text -->
+            
+            <p id="transaction-counter">Total Transactions: 0</p>
+            <!-- This paragraph shows the total number of transactions -->
+            <!-- id="transaction-counter" allows JavaScript to update the count -->
+        </div>
+        
+        <!-- Date and Time Display in Top Right Corner -->
+        <div id="datetime-display"></div>
+        <!-- This div will show current date and time -->
+        <!-- Positioned in top right corner using CSS -->
+    </section>
+    
+    <!-- MAIN DASHBOARD CONTENT -->
+    <!-- This section contains all the banking functionality -->
+    <section class="dashboard-content">
+        <!-- section tag groups the main dashboard area -->
+        
+        <div id="dashboard-container">
+            <!-- This div is a container that holds all dashboard content -->
+            <!-- IMPORTANT: This id is used by JavaScript - do not change it -->
+            
+            <!-- MY ACCOUNT SECTION (Hidden by default) -->
+            <!-- This section shows account details when "My Account" is clicked -->
+            <div id="my-account-section" class="dashboard-card" style="display: none;">
+                <!-- style="display: none;" hides this section initially -->
+                <!-- JavaScript will change display to "block" to show it -->
+                
+                <h2>My Account Details</h2>
+                <!-- h2 is a subheading for this section -->
+                
+                <div class="account-info">
+                    <!-- This div contains account information -->
+                    
+                    <div class="profile-photo">
+                        <!-- This div contains the profile photo -->
+                        <img src="https://ui-avatars.com/api/?name=User&size=150&background=FF6600&color=fff" alt="Profile Photo" id="profile-image">
+                        <!-- Profile photo using UI Avatars service -->
+                        <!-- This generates a profile picture with the user's initials -->
+                    </div>
+                    
+                    <p><strong>Username:</strong> <span id="account-username"></span></p>
+                    <!-- Shows the username from localStorage -->
+                    
+                    <p><strong>Account Number:</strong> <span id="account-number"></span></p>
+                    <!-- Shows a randomly generated account number -->
+                    
+                    <p><strong>Current Balance:</strong> ₹<span id="account-balance-display"></span></p>
+                    <!-- Shows the current balance -->
+                </div>
+                
+                <button onclick="hideMyAccount()">Close</button>
+                <!-- Button to hide the account section -->
+            </div>
+            
+            <!-- BALANCE CARD -->
+            <!-- This card displays the account balance -->
+            <div class="dashboard-card" id="balance-section">
+                <!-- dashboard-card class styles it as a card -->
+                <!-- id="balance-section" is IMPORTANT - JavaScript may use it -->
+                
+                <h2>Account Balance</h2>
+                <!-- h2 is a subheading for the balance section -->
+                
+                <p id="balance-display" class="balance-amount">1000</p>
+                <!-- This paragraph shows the current balance -->
+                <!-- id="balance-display" is CRITICAL - JavaScript updates this value -->
+                <!-- Initial balance is set to 1000 -->
+                <!-- class="balance-amount" is for CSS styling only -->
+            </div>
+            
+            <!-- TRANSACTION BUTTONS CARD -->
+            <!-- This card contains the deposit and withdraw buttons -->
+            <div class="dashboard-card" id="button-section">
+                <!-- dashboard-card class styles it as a card -->
+                <!-- id="button-section" is IMPORTANT - JavaScript may use it -->
+                
+                <h2>Quick Actions</h2>
+                <!-- h2 is a subheading for this section -->
+                
+                <div class="button-group">
+                    <!-- This div groups the buttons together -->
+                    
+                    <button id="deposit-btn" class="action-btn deposit-btn">Deposit Money</button>
+                    <!-- This button allows users to deposit money -->
+                    <!-- id="deposit-btn" is CRITICAL - JavaScript uses this to detect clicks -->
+                    <!-- class is for CSS styling only -->
+                    
+                    <button id="withdraw-btn" class="action-btn withdraw-btn">Withdraw Money</button>
+                    <!-- This button allows users to withdraw money -->
+                    <!-- id="withdraw-btn" is CRITICAL - JavaScript uses this to detect clicks -->
+                    <!-- class is for CSS styling only -->
+                </div>
+            </div>
+            
+            <!-- TRANSACTION HISTORY CARD -->
+            <!-- This card shows the list of all transactions -->
+            <div class="dashboard-card" id="history-section">
+                <!-- dashboard-card class styles it as a card -->
+                <!-- id="history-section" is IMPORTANT - JavaScript may use it -->
+                
+                <h2>Transaction History</h2>
+                <!-- h2 is a subheading for the transaction history section -->
+                
+                <ul id="transaction-list">
+                    <!-- This is an unordered list that will hold transaction items -->
+                    <!-- id="transaction-list" is CRITICAL - JavaScript adds new transactions here -->
+                    <!-- Transactions will be added here by JavaScript using appendChild -->
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FOOTER SECTION -->
+    <!-- The footer appears at the bottom of the page -->
+    <footer class="footer">
+        <!-- footer is a semantic HTML tag for the bottom section -->
+        
+        <p>&copy; 2024 Mirai Bank. All rights reserved.</p>
+        <!-- &copy; displays the copyright symbol © -->
+        <!-- p tag contains the footer text -->
+    </footer>
+    
+    <script src="script.js"></script>
+    <!-- This script tag links our JavaScript file to add functionality -->
+    <!-- The src attribute tells the browser where to find the JavaScript file -->
+    <!-- IMPORTANT: This loads all the JavaScript code that makes buttons work -->
+</body>
+
+</html>
+<!-- End of HTML document -->
